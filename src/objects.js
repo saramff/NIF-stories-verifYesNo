@@ -12,12 +12,12 @@ export const stories = [
         base: false,
         text: "",
         options: {
-          positive: "El polideportivo tiene piscina.",
-          negative: "El polideportivo no tiene piscina.",
+          positive: "La piscina tiene toboganes.",
+          negative: "La piscina no tiene toboganes.",
         },
         keyword1: "polideportivo",
         keyword2: "piscina",
-        question: "¿El polideportivo tiene piscina?",
+        question: "¿La piscina tiene toboganes?",
       },
       {
         base: true,
