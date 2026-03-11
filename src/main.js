@@ -3,7 +3,7 @@
 //                                                                    //  
 ////////////////////////////////////////////////////////////////////////
 
-import { createClient } from "@supabase/supabase-js";
+// import { createClient } from "@supabase/supabase-js";
 import { stories, verificationSentences, words } from "./objects.js";
 
 
@@ -36,7 +36,30 @@ function shuffle(array) {
 
 /**************************************************************************************/
 
+// Function to randomize positive/negative sentences in experimental sentences (50% each)
+function randomizeExperimentalSentences(story) {
+  const experimentalArray = story.filter((story) => !story.base);
+  const experimentalLength = experimentalArray.length;
+  const randomPosNegArray = [];
+
+  for (let i = 0; i < experimentalLength / 2; i++) {
+    randomPosNegArray[i] = "positive";
+    randomPosNegArray[experimentalLength - 1 - i] = "negative";
+  }
+
+  shuffle(randomPosNegArray);
+
+  experimentalArray.forEach(
+    (experimentalObject, index) => {
+      experimentalObject.text = experimentalObject.options[randomPosNegArray[index]];
+      experimentalObject.type = randomPosNegArray[index];
+    }
+  );
+}
+
 shuffle(stories);
+randomizeExperimentalSentences(stories[0].sentences);
+randomizeExperimentalSentences(stories[1].sentences);
 
 const firstStory = stories[0];
 const secondStory = stories[1];
@@ -257,31 +280,17 @@ let instructionsSentencePresentation = {
 timeline.push(instructionsSentencePresentation);
 
 
-/* Instructions for sentence presentation reminder */
-let instructionsSentencePresentation_reminder = {
-  type: jsPsychHtmlKeyboardResponse,
-  stimulus: `
-  <div class="instrucciones">
-    <p>⚠️ <strong>Recuerda:</strong></p>
-    <p>Es fundamental que leas el texto con <strong>mucha atención</strong>, de forma <strong>comprensiva</strong> e <strong>imaginándote dentro de la situación</strong> que describe la historia.</p>
-    <p>Al finalizar la lectura, responderás preguntas sobre su contenido.</p>
-    <p>Tu objetivo es <strong>comprender bien</strong> cada fragmento antes de continuar.</p>
-    <br />
-    <p><strong>Pulsa la barra espaciadora para comenzar la lectura.</strong></p>
-  </div>
-  `,
-  choices: [' '],
-  post_trial_gap: 500,
-};
-timeline.push(instructionsSentencePresentation_reminder);
-
-
 /* Create stimuli array for sentence presentation */
 let sentencesPresentationStimuli = firstStory.sentences.map((sentence) => {
   return {
     stimulus: `
       <h3 class="sentence">${sentence.text}</h3>
     `,
+    type: sentence.type,
+    keyword1: sentence.keyword1,
+    keyword2: sentence.keyword2,
+    isIntroductory: sentence.introductory,
+    classification: sentence.base ? "base" : "experimental",
   };
 });
 
@@ -290,8 +299,18 @@ let sentencesPresentation = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus: jsPsych.timelineVariable("stimulus"),
   choices: [' '],
+
+  trial_duration: function(){
+    const isIntroductory = jsPsych.evaluateTimelineVariable("isIntroductory");
+    return isIntroductory ? 12000 : 6000;
+  },
+
   data: {
     task: "sentences presentation",
+    type: jsPsych.timelineVariable("type"),
+    keyword1: jsPsych.timelineVariable("keyword1"),
+    keyword2: jsPsych.timelineVariable("keyword2"),
+    classification: jsPsych.timelineVariable("classification"),
   },
 };
 
@@ -339,30 +358,17 @@ let instructionsSentencePresentation2 = {
 };
 timeline.push(instructionsSentencePresentation2);
 
-/* Instructions for sentence presentation reminder 2 */
-let instructionsSentencePresentation_reminder2 = {
-  type: jsPsychHtmlKeyboardResponse,
-  stimulus: `
-  <div class="instrucciones">
-    <p>⚠️ <strong>Recuerda:</strong></p>
-    <p>Es fundamental que leas el texto con <strong>mucha atención</strong>, de forma <strong>comprensiva</strong> e <strong>imaginándote dentro de la situación</strong> que describe la historia.</p>
-    <p>Al finalizar la lectura, responderás preguntas sobre su contenido.</p>
-    <p>Tu objetivo es <strong>comprender bien</strong> cada fragmento antes de continuar.</p>
-    <br />
-    <p><strong>Pulsa la barra espaciadora para comenzar la lectura.</strong></p>
-  </div>
-  `,
-  choices: [' '],
-  post_trial_gap: 500,
-};
-timeline.push(instructionsSentencePresentation_reminder2);
-
 /* Create stimuli array for sentence presentation */
 let sentencesPresentationStimuli2 = secondStory.sentences.map((sentence) => {
   return {
     stimulus: `
       <h3 class="sentence">${sentence.text}</h3>
     `,
+    type: sentence.type,
+    keyword1: sentence.keyword1,
+    keyword2: sentence.keyword2,
+    isIntroductory: sentence.introductory,
+    classification: sentence.base ? "base" : "experimental",
   };
 });
 
@@ -371,8 +377,18 @@ let sentencesPresentation2 = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus: jsPsych.timelineVariable("stimulus"),
   choices: [' '],
+
+  trial_duration: function(){
+    const isIntroductory = jsPsych.evaluateTimelineVariable("isIntroductory");
+    return isIntroductory ? 12000 : 6000;
+  },
+
   data: {
     task: "sentences presentation",
+    type: jsPsych.timelineVariable("type"),
+    keyword1: jsPsych.timelineVariable("keyword1"),
+    keyword2: jsPsych.timelineVariable("keyword2"),
+    classification: jsPsych.timelineVariable("classification"),
   },
 };
 
@@ -573,29 +589,29 @@ timeline.push(testWordsProcedure);
 // /**************************************************************************************/
 
 
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_API_KEY
-);
+// const supabase = createClient(
+//   import.meta.env.VITE_SUPABASE_URL,
+//   import.meta.env.VITE_SUPABASE_API_KEY
+// );
 
-const TABLE_NAME = "StoriesNIFMainObjectVerification";
+// const TABLE_NAME = "StoriesNIFMainObjectVerification";
 
-async function saveData(data) {
-  console.log(data);
-  const { error } = await supabase.from(TABLE_NAME).insert({ data });
+// async function saveData(data) {
+//   console.log(data);
+//   const { error } = await supabase.from(TABLE_NAME).insert({ data });
 
-  return { error };
-}
+//   return { error };
+// }
 
-const saveDataBlock = {
-  type: jsPsychCallFunction,
-  func: function() {
-    saveData(jsPsych.data.get())
-  },
-  timing_post_trial: 200
-}
+// const saveDataBlock = {
+//   type: jsPsychCallFunction,
+//   func: function() {
+//     saveData(jsPsych.data.get())
+//   },
+//   timing_post_trial: 200
+// }
 
-timeline.push(saveDataBlock);
+// timeline.push(saveDataBlock);
 
 
 
