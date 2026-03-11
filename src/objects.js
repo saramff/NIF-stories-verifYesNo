@@ -1,3 +1,4 @@
+// Each story has a -type- ("positive" / "negative") dynamic property
 export const stories = [
   {
     story: "a",
@@ -16,6 +17,7 @@ export const stories = [
         },
         keyword1: "polideportivo",
         keyword2: "piscina",
+        question: "¿Es el nosequé nosecuanto?",
       },
       {
         base: true,
@@ -30,6 +32,7 @@ export const stories = [
         },
         keyword1: "ambulatorio",
         keyword2: "urgencias",
+        question: "¿Es el nosequé nosecuanto?",
       },
       {
         base: true,
@@ -44,6 +47,7 @@ export const stories = [
         },
         keyword1: "supermercado",
         keyword2: "pescadería",
+        question: "¿Es el nosequé nosecuanto?",
       },
       {
         base: true,
@@ -58,6 +62,7 @@ export const stories = [
         },
         keyword1: "plaza",
         keyword2: "fuentes",
+        question: "¿Es el nosequé nosecuanto?",
       },
       {
         base: true,
@@ -72,6 +77,7 @@ export const stories = [
         },
         keyword1: "cafetería",
         keyword2: "terraza",
+        question: "¿Es el nosequé nosecuanto?",
       },
       {
         introductory: true,
@@ -87,6 +93,7 @@ export const stories = [
         },
         keyword1: "ascensor",
         keyword2: "cámaras",
+        question: "¿Es el nosequé nosecuanto?",
       },
       {
         base: true,
@@ -101,6 +108,7 @@ export const stories = [
         },
         keyword1: "patio",
         keyword2: "macetas",
+        question: "¿Es el nosequé nosecuanto?",
       },
       {
         base: true,
@@ -115,6 +123,7 @@ export const stories = [
         },
         keyword1: "trastero",
         keyword2: "ventana",
+        question: "¿Es el nosequé nosecuanto?",
       },
       {
         introductory: true,
@@ -130,6 +139,7 @@ export const stories = [
         },
         keyword1: "cama",
         keyword2: "sábanas",
+        question: "¿Es el nosequé nosecuanto?",
       },
       {
         base: true,
@@ -144,6 +154,7 @@ export const stories = [
         },
         keyword1: "sofá",
         keyword2: "cojines",
+        question: "¿Es el nosequé nosecuanto?",
       },
       {
         base: true,
@@ -158,6 +169,7 @@ export const stories = [
         },
         keyword1: "ducha",
         keyword2: "mampara",
+        question: "¿Es el nosequé nosecuanto?",
       },
       {
         base: true,
@@ -172,6 +184,7 @@ export const stories = [
         },
         keyword1: "entrada",
         keyword2: "paragüero",
+        question: "¿Es el nosequé nosecuanto?",
       },
       {
         introductory: true,
@@ -197,6 +210,7 @@ export const stories = [
         },
         keyword1: "sartén",
         keyword2: "aceite",
+        question: "¿Es el nosequé nosecuanto?",
       },
       {
         base: true,
@@ -211,6 +225,7 @@ export const stories = [
         },
         keyword1: "frigorífico",
         keyword2: "verduras",
+        question: "¿Es el nosequé nosecuanto?",
       },
       {
         base: true,
@@ -225,6 +240,7 @@ export const stories = [
         },
         keyword1: "papelera",
         keyword2: "botellas",
+        question: "¿Es el nosequé nosecuanto?",
       },
       {
         base: true,
@@ -239,6 +255,7 @@ export const stories = [
         },
         keyword1: "cesta",
         keyword2: "pan",
+        question: "¿Es el nosequé nosecuanto?",
       },
       {
         introductory: true,
@@ -254,6 +271,7 @@ export const stories = [
         },
         keyword1: "barra",
         keyword2: "copas",
+        question: "¿Es el nosequé nosecuanto?",
       },
       {
         base: true,
@@ -268,6 +286,7 @@ export const stories = [
         },
         keyword1: "carro",
         keyword2: "jarras",
+        question: "¿Es el nosequé nosecuanto?",
       },
       {
         introductory: true,
@@ -283,6 +302,7 @@ export const stories = [
         },
         keyword1: "ensalada",
         keyword2: "tomate",
+        question: "¿Es el nosequé nosecuanto?",
       },
       {
         base: true,
@@ -297,6 +317,7 @@ export const stories = [
         },
         keyword1: "pizza",
         keyword2: "atún",
+        question: "¿Es el nosequé nosecuanto?",
       },
       {
         base: true,
@@ -311,6 +332,7 @@ export const stories = [
         },
         keyword1: "sopa",
         keyword2: "fideos",
+        question: "¿Es el nosequé nosecuanto?",
       },
       {
         base: true,
@@ -325,6 +347,7 @@ export const stories = [
         },
         keyword1: "hamburguesa",
         keyword2: "mayonesa",
+        question: "¿Es el nosequé nosecuanto?",
       },
       {
         introductory: true,
@@ -340,6 +363,7 @@ export const stories = [
         },
         keyword1: "perchero",
         keyword2: "chaquetas",
+        question: "¿Es el nosequé nosecuanto?",
       },
       {
         base: true,
@@ -354,159 +378,13 @@ export const stories = [
         },
         keyword1: "taquilla",
         keyword2: "candado",
+        question: "¿Es el nosequé nosecuanto?",
       },
       {
         base: true,
         text: "Hay un botiquín que tiene vendas y gasas.",
       },
     ],
-  },
-];
-
-export const verificationSentences = [
-  {
-    text: "",
-    trueVerification: "La piscina tiene toboganes.",
-    falseVerfication: "La piscina tiene socorrista.",
-    correctResponse: "",
-  },
-  {
-    text: "",
-    trueVerification: "El ambulatorio tiene urgencias.",
-    falseVerfication: "El ambulatorio tiene celadores.",
-    correctResponse: "",
-  },
-  {
-    text: "",
-    trueVerification: "El supermercado tiene pescadería.",
-    falseVerfication: "El supermercado tiene frutería.",
-    correctResponse: "",
-  },
-  {
-    text: "",
-    trueVerification: "La plaza tiene fuentes.",
-    falseVerfication: "La plaza tiene estatuas.",
-    correctResponse: "",
-  },
-  {
-    text: "",
-    trueVerification: "La cafetería tiene terraza.",
-    falseVerfication: "La cafetería tiene almacén.",
-    correctResponse: "",
-  },
-  {
-    text: "",
-    trueVerification: "El ascensor tiene cámaras.",
-    falseVerfication: "El ascensor tiene alarma.",
-    correctResponse: "",
-  },
-  {
-    text: "",
-    trueVerification: "El patio interior tiene macetas.",
-    falseVerfication: "El patio interior tiene tendederos.",
-    correctResponse: "",
-  },
-  {
-    text: "",
-    trueVerification: "El trastero tiene ventana.",
-    falseVerfication: "El trastero tiene ventiladores.",
-    correctResponse: "",
-  },
-  {
-    text: "",
-    trueVerification: "La cama tiene sábanas.",
-    falseVerfication: "La cama tiene cabecero.",
-    correctResponse: "",
-  },
-  {
-    text: "",
-    trueVerification: "El sofá tiene cojines.",
-    falseVerfication: "El sofá tiene reposabrazos.",
-    correctResponse: "",
-  },
-  {
-    text: "",
-    trueVerification: "La ducha tiene mampara.",
-    falseVerfication: "La ducha tiene azulejos.",
-    correctResponse: "",
-  },
-  {
-    text: "",
-    trueVerification: "La entrada tiene paragüero.",
-    falseVerfication: "La entrada tiene felpudo.",
-    correctResponse: "",
-  },
-  {
-    text: "",
-    trueVerification: "La sartén tiene aceite.",
-    falseVerfication: "La sartén tiene grasa.",
-    correctResponse: "",
-  },
-  {
-    text: "",
-    trueVerification: "El frigorífico tiene verduras.",
-    falseVerfication: "El frigorífico tiene zumos.",
-    correctResponse: "",
-  },
-  {
-    text: "",
-    trueVerification: "La papelera tiene botellas.",
-    falseVerfication: "La papelera tiene tapones.",
-    correctResponse: "",
-  },
-  {
-    text: "",
-    trueVerification: "La cesta tiene pan.",
-    falseVerfication: "La cesta tiene galletas.",
-    correctResponse: "",
-  },
-  {
-    text: "",
-    trueVerification: "La barra tiene copas.",
-    falseVerfication: "La barra tiene pajitas.",
-    correctResponse: "",
-  },
-  {
-    text: "",
-    trueVerification: "El carro tiene jarras.",
-    falseVerfication: "El carro tiene bandejas.",
-    correctResponse: "",
-  },
-  {
-    text: "",
-    trueVerification: "La ensalada tiene tomate.",
-    falseVerfication: "La ensalada tiene cebolla.",
-    correctResponse: "",
-  },
-  {
-    text: "",
-    trueVerification: "La pizza tiene atún.",
-    falseVerfication: "La pizza tiene anchoas.",
-    correctResponse: "",
-  },
-  {
-    text: "",
-    trueVerification: "La sopa tiene fideos.",
-    falseVerfication: "La sopa tiene garbanzos.",
-    correctResponse: "",
-  },
-  {
-    text: "",
-    trueVerification: "La hamburguesa tiene mayonesa.",
-    falseVerfication: "La hamburguesa tiene mostaza.",
-    correctResponse: "",
-  },
-  {
-    text: "",
-    trueVerification: "El perchero tiene chaquetas.",
-    falseVerfication: "El perchero tiene bufandas.",
-    correctResponse: "",
-  },
-  {
-    text: "",
-    trueVerification: "La taquilla tiene candado.",
-    falseVerfication: "La taquilla tiene etiqueta.",
-    correctResponse: "",
   },
 ];
 

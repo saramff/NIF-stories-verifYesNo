@@ -4,7 +4,7 @@
 ////////////////////////////////////////////////////////////////////////
 
 // import { createClient } from "@supabase/supabase-js";
-import { stories, verificationSentences, words } from "./objects.js";
+import { stories, words } from "./objects.js";
 
 
 /**************************************************************************************/
@@ -67,17 +67,37 @@ const secondStory = stories[1];
 
 /**************************************************************************************/
 
-shuffle(verificationSentences);
-let verificationLength = verificationSentences.length;
+// Create verification questions array
 
-for (let i = 0; i < verificationLength / 2; i++) {
-  verificationSentences[i].text = verificationSentences[i].trueVerification;
-  verificationSentences[i].correctResponse = correctKey;
-  verificationSentences[verificationLength - 1 - i].text = verificationSentences[verificationLength - 1 - i].falseVerfication;
-  verificationSentences[verificationLength - 1 - i].correctResponse = incorrectKey;
+let createQuestionsArray = (mainStory) => {
+  let filteredExperimental = mainStory.sentences.filter((sentence) => !sentence.base);
+
+  return filteredExperimental.map((story) => {
+    let questionIs;
+    let correctResponse;
+
+    if (story.type === "positive") {
+      questionIs = true;
+      correctResponse = correctKey;
+    } else {
+      questionIs = false;
+      correctResponse = incorrectKey
+    }
+
+    return {
+      question: story.question,
+      questionIs,
+      correctResponse
+    }
+  })
 }
 
-shuffle(verificationSentences);
+let questions1 = createQuestionsArray(firstStory);
+let questions2 = createQuestionsArray(secondStory);
+
+let verificationQuestions = [...questions1, ...questions2];
+
+shuffle(verificationQuestions);
 
 
 /**************************************************************************************/
@@ -415,6 +435,8 @@ let endOfStory2 = {
 timeline.push(endOfStory2);
 
 
+/**************************************************************************************/
+
 /* Instructions for verification presentation */
 let instructionsVerification = {
   type: jsPsychHtmlKeyboardResponse,
@@ -440,16 +462,17 @@ let instructionsVerification = {
 timeline.push(instructionsVerification);
 
 /* Create stimuli array for verification presentation */
-let verificationStimuli = verificationSentences.map((verificationSentece) => {
+let verificationStimuli = verificationQuestions.map((question) => {
   return {
     stimulus: `
-      <h3 class="sentence">${verificationSentece.text}</h3>
+      <h3 class="sentence">${question.question}</h3>
       <div class="keys">
         <p class="${correctKey === 'a' ? 'left' : 'right'}">SÍ</p>
         <p class="${correctKey === 'a' ? 'right' : 'left'}">NO</p>
       </div>
     `,
-    correct_response: verificationSentece.correctResponse
+    correct_response: question.correctResponse,
+    question_is: question.questionIs
   };
 });
 
@@ -461,6 +484,7 @@ let testVerification = {
   data: {
     task: "response verification test",
     correct_response: jsPsych.timelineVariable("correct_response"),
+    question_is: jsPsych.timelineVariable("question_is")
   },
   on_finish: function (data) {
     data.correct = jsPsych.pluginAPI.compareKeys(
