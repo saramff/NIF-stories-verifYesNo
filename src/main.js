@@ -3,7 +3,7 @@
 //                                                                    //  
 ////////////////////////////////////////////////////////////////////////
 
-// import { createClient } from "@supabase/supabase-js";
+import { createClient } from "@supabase/supabase-js";
 import { stories, words } from "./objects.js";
 
 
@@ -286,11 +286,10 @@ let instructionsSentencePresentation = {
     <p>Ahora vas a leer una historia.</p>
     <p>La historia se presentará en segmentos (por ejemplo, una frase cada vez).</p>
     <p>Tu tarea consiste en <strong>leer detenidamente y de forma comprensiva</strong> la información, <strong>imaginándote dentro de la situación</strong> que describe la historia.</p>
-    <p><strong>Muy importante:</strong> presta mucha atención durante la lectura, porque <strong>después te haremos unas preguntas</strong> sobre el contenido del texto.</p>
+    <p>Es muy importante que prestes atención porque después te haremos unas preguntas sobre el contenido del texto.</p>
     <p>Para poder responder correctamente, asegúrate de comprender bien cada fragmento antes de pasar al siguiente.</p>
-    <p>Puedes tomarte el tiempo que necesites para leer cada fragmento:<br>
-    <strong>Tú</strong> decidirás cuándo pasar al siguiente.</p>
-    <p>Para avanzar y ver el siguiente fragmento, pulsa la <strong>barra espaciadora</strong>.</p>
+    <p>Cuando hayas terminado de leer un fragmento, puedes pasar al siguiente pulsando la <strong>barra espaciadora</strong>.</p>
+    <p>Ten en cuenta que cada fragmento permanecerá en pantalla solo durante un tiempo limitado, por lo que es importante que leas con atención desde el principio.</p>
     <br />
     <p><strong>Pulsa la barra espaciadora para comenzar.</strong></p>
   </div>
@@ -366,9 +365,9 @@ let instructionsSentencePresentation2 = {
     <p>Ahora vas a leer un segundo texto.</p>
     <p>Al igual que antes, el texto se presentará en pantallas sucesivas.</p>
     <p>Tu tarea es la misma: <strong>lee detenidamente y de forma comprensiva</strong> cada parte del texto, <strong>imaginándote dentro de la situación</strong> que describe la historia.</p>
-    <p>Es importante que prestes atención, porque al finalizar te haremos unas preguntas sobre el contenido.</p>
-    <p>No hay límite de tiempo: puedes tomarte el tiempo que necesites en cada pantalla.<br>
-    Para avanzar, pulsa la <strong>barra espaciadora</strong>.</p>
+    <p>Para poder responder correctamente, asegúrate de comprender bien cada fragmento antes de pasar al siguiente.</p>
+    <p>Cuando hayas terminado de leer un fragmento, puedes pasar al siguiente pulsando la <strong>barra espaciadora</strong>.</p>
+    <p>Ten en cuenta que cada fragmento permanecerá en pantalla solo durante un tiempo limitado, por lo que es importante que leas con atención desde el principio.</p>
     <br />
     <p>Pulsa la barra espaciadora para comenzar.</p>
    </div>
@@ -444,15 +443,26 @@ let instructionsVerification = {
   <div class="instrucciones">
     <p>Ahora realizarás la siguiente tarea:</p>
     <p>A continuación verás una serie de <strong>oraciones</strong> en la pantalla que se mostrarán una a una.</p>
-    <p>Algunas de estas oraciones serán <strong>correctas</strong> y otras serán <strong>incorrectas</strong> en relación con la información que acabas de leer en los textos.</p>
+    <p>Tu tarea será indicar si <strong>la información que aparece en la oración es verdadera o falsa</strong> según la historia que acabas de leer.</p>
     
-    <p>Por ejemplo:</p>
-    <p><em>"El gato está encima de la mesa."</em></p>
+    <p><strong>Importante:</strong> debes responder teniendo en cuenta <strong>lo que realmente ocurre en la historia</strong>, no simplemente si la oración se parece a algo que leíste.</p>
+
+    <p>Por ejemplo, imagina que en la historia leíste:</p>
+    <p><em>"La niña no tiene gafas."</em></p>
+
+    <p>Si ahora aparece la oración:</p>
+    <p><em>"¿La niña tiene gafas?"</em></p>
+
+    <p>La respuesta correcta sería <strong>NO</strong>, porque en la historia se decía que <strong>la niña no tenía gafas</strong>.</p>
+
     <p>Para responder harás lo siguiente:</p>
     <p><strong>Si la oración es correcta</strong>, pulsa la tecla '${correctKey.toUpperCase()}' (SÍ).</p>
     <p><strong>Si la oración es incorrecta</strong>, pulsa la tecla '${incorrectKey.toUpperCase()}' (NO).</p>
 
     <p>Te recomendamos colocar los dedos sobre las teclas ${correctKey.toUpperCase()} y ${incorrectKey.toUpperCase()} durante la tarea para no olvidarlas.</p>
+
+    <p><strong>Responde lo más rápido y preciso posible.</strong></p>
+
     <p>Pulsa la barra espaciadora para comenzar.</p>
   </div>
   `,
@@ -539,7 +549,7 @@ let tetris = {
   `,
   post_trial_gap: 500,
   choices: "NO_KEYS", // Prevent key press
-  trial_duration: 720000, 
+  trial_duration: 100, 
 };
 timeline.push(tetris);
 
@@ -613,29 +623,29 @@ timeline.push(testWordsProcedure);
 // /**************************************************************************************/
 
 
-// const supabase = createClient(
-//   import.meta.env.VITE_SUPABASE_URL,
-//   import.meta.env.VITE_SUPABASE_API_KEY
-// );
+const supabase = createClient(
+  import.meta.env.VITE_SUPABASE_URL,
+  import.meta.env.VITE_SUPABASE_API_KEY
+);
 
-// const TABLE_NAME = "StoriesNIFMainObjectVerification";
+const TABLE_NAME = "StoriesNIFVerifYesNo";
 
-// async function saveData(data) {
-//   console.log(data);
-//   const { error } = await supabase.from(TABLE_NAME).insert({ data });
+async function saveData(data) {
+  console.log(data);
+  const { error } = await supabase.from(TABLE_NAME).insert({ data });
 
-//   return { error };
-// }
+  return { error };
+}
 
-// const saveDataBlock = {
-//   type: jsPsychCallFunction,
-//   func: function() {
-//     saveData(jsPsych.data.get())
-//   },
-//   timing_post_trial: 200
-// }
+const saveDataBlock = {
+  type: jsPsychCallFunction,
+  func: function() {
+    saveData(jsPsych.data.get())
+  },
+  timing_post_trial: 200
+}
 
-// timeline.push(saveDataBlock);
+timeline.push(saveDataBlock);
 
 
 

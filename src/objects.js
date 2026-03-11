@@ -12,12 +12,12 @@ export const stories = [
         base: false,
         text: "",
         options: {
-          positive: "El polideportivo sí tiene piscina.",
+          positive: "El polideportivo tiene piscina.",
           negative: "El polideportivo no tiene piscina.",
         },
         keyword1: "polideportivo",
         keyword2: "piscina",
-        question: "¿Es el nosequé nosecuanto?",
+        question: "¿El polideportivo tiene piscina?",
       },
       {
         base: true,
@@ -27,12 +27,12 @@ export const stories = [
         base: false,
         text: "",
         options: {
-          positive: "El ambulatorio sí tiene urgencias.",
+          positive: "El ambulatorio tiene urgencias.",
           negative: "El ambulatorio no tiene urgencias.",
         },
         keyword1: "ambulatorio",
         keyword2: "urgencias",
-        question: "¿Es el nosequé nosecuanto?",
+        question: "¿El ambulatorio tiene urgencias?",
       },
       {
         base: true,
@@ -42,12 +42,12 @@ export const stories = [
         base: false,
         text: "",
         options: {
-          positive: "El supermercado sí tiene pescadería.",
+          positive: "El supermercado tiene pescadería.",
           negative: "El supermercado no tiene pescadería.",
         },
         keyword1: "supermercado",
         keyword2: "pescadería",
-        question: "¿Es el nosequé nosecuanto?",
+        question: "¿El supermercado tiene pescadería?",
       },
       {
         base: true,
@@ -57,12 +57,12 @@ export const stories = [
         base: false,
         text: "",
         options: {
-          positive: "La plaza sí tiene fuentes.",
+          positive: "La plaza tiene fuentes.",
           negative: "La plaza no tiene fuentes.",
         },
         keyword1: "plaza",
         keyword2: "fuentes",
-        question: "¿Es el nosequé nosecuanto?",
+        question: "¿La plaza tiene fuentes?",
       },
       {
         base: true,
@@ -72,12 +72,12 @@ export const stories = [
         base: false,
         text: "",
         options: {
-          positive: "La cafetería sí tiene terraza.",
+          positive: "La cafetería tiene terraza.",
           negative: "La cafetería no tiene terraza.",
         },
         keyword1: "cafetería",
         keyword2: "terraza",
-        question: "¿Es el nosequé nosecuanto?",
+        question: "¿La cafetería tiene terraza?",
       },
       {
         introductory: true,
@@ -88,12 +88,12 @@ export const stories = [
         base: false,
         text: "",
         options: {
-          positive: "El ascensor sí tiene cámaras.",
+          positive: "El ascensor tiene cámaras.",
           negative: "El ascensor no tiene cámaras.",
         },
         keyword1: "ascensor",
         keyword2: "cámaras",
-        question: "¿Es el nosequé nosecuanto?",
+        question: "¿El ascensor tiene cámaras?",
       },
       {
         base: true,
@@ -103,12 +103,12 @@ export const stories = [
         base: false,
         text: "",
         options: {
-          positive: "El patio interior sí tiene macetas.",
+          positive: "El patio interior tiene macetas.",
           negative: "El patio interior no tiene macetas.",
         },
         keyword1: "patio",
         keyword2: "macetas",
-        question: "¿Es el nosequé nosecuanto?",
+        question: "¿El patio interior tiene macetas?",
       },
       {
         base: true,
@@ -118,12 +118,12 @@ export const stories = [
         base: false,
         text: "",
         options: {
-          positive: "El trastero sí tiene ventana.",
+          positive: "El trastero tiene ventana.",
           negative: "El trastero no tiene ventana.",
         },
         keyword1: "trastero",
         keyword2: "ventana",
-        question: "¿Es el nosequé nosecuanto?",
+        question: "¿El trastero tiene ventana?",
       },
       {
         introductory: true,
@@ -134,12 +134,12 @@ export const stories = [
         base: false,
         text: "",
         options: {
-          positive: "La cama sí tiene sábanas.",
+          positive: "La cama tiene sábanas.",
           negative: "La cama no tiene sábanas.",
         },
         keyword1: "cama",
         keyword2: "sábanas",
-        question: "¿Es el nosequé nosecuanto?",
+        question: "¿La cama tiene sábanas?",
       },
       {
         base: true,
@@ -149,12 +149,12 @@ export const stories = [
         base: false,
         text: "",
         options: {
-          positive: "El sofá sí tiene cojines.",
+          positive: "El sofá tiene cojines.",
           negative: "El sofá no tiene cojines.",
         },
         keyword1: "sofá",
         keyword2: "cojines",
-        question: "¿Es el nosequé nosecuanto?",
+        question: "¿El sofá tiene cojines?",
       },
       {
         base: true,
@@ -164,12 +164,12 @@ export const stories = [
         base: false,
         text: "",
         options: {
-          positive: "La ducha sí tiene mampara.",
+          positive: "La ducha tiene mampara.",
           negative: "La ducha no tiene mampara.",
         },
         keyword1: "ducha",
         keyword2: "mampara",
-        question: "¿Es el nosequé nosecuanto?",
+        question: "¿La ducha tiene mampara?",
       },
       {
         base: true,
@@ -179,12 +179,12 @@ export const stories = [
         base: false,
         text: "",
         options: {
-          positive: "La entrada sí tiene paragüero.",
+          positive: "La entrada tiene paragüero.",
           negative: "La entrada no tiene paragüero.",
         },
         keyword1: "entrada",
         keyword2: "paragüero",
-        question: "¿Es el nosequé nosecuanto?",
+        question: "¿La entrada tiene paragüero?",
       },
       {
         introductory: true,
@@ -205,12 +205,12 @@ export const stories = [
         base: false,
         text: "",
         options: {
-          positive: "La sartén sí tiene aceite.",
+          positive: "La sartén tiene aceite.",
           negative: "La sartén no tiene aceite.",
         },
         keyword1: "sartén",
         keyword2: "aceite",
-        question: "¿Es el nosequé nosecuanto?",
+        question: "¿La sartén tiene aceite?",
       },
       {
         base: true,
@@ -220,12 +220,12 @@ export const stories = [
         base: false,
         text: "",
         options: {
-          positive: "El frigorífico sí tiene verduras.",
+          positive: "El frigorífico tiene verduras.",
           negative: "El frigorífico no tiene verduras.",
         },
         keyword1: "frigorífico",
         keyword2: "verduras",
-        question: "¿Es el nosequé nosecuanto?",
+        question: "¿El frigorífico tiene verduras?",
       },
       {
         base: true,
@@ -235,12 +235,12 @@ export const stories = [
         base: false,
         text: "",
         options: {
-          positive: "La papelera sí tiene botellas.",
+          positive: "La papelera tiene botellas.",
           negative: "La papelera no tiene botellas.",
         },
         keyword1: "papelera",
         keyword2: "botellas",
-        question: "¿Es el nosequé nosecuanto?",
+        question: "¿La papelera tiene botellas?",
       },
       {
         base: true,
@@ -250,12 +250,12 @@ export const stories = [
         base: false,
         text: "",
         options: {
-          positive: "La cesta sí tiene pan.",
+          positive: "La cesta tiene pan.",
           negative: "La cesta no tiene pan.",
         },
         keyword1: "cesta",
         keyword2: "pan",
-        question: "¿Es el nosequé nosecuanto?",
+        question: "¿La cesta tiene pan?",
       },
       {
         introductory: true,
@@ -266,12 +266,12 @@ export const stories = [
         base: false,
         text: "",
         options: {
-          positive: "La barra sí tiene copas.",
+          positive: "La barra tiene copas.",
           negative: "La barra no tiene copas.",
         },
         keyword1: "barra",
         keyword2: "copas",
-        question: "¿Es el nosequé nosecuanto?",
+        question: "¿La barra tiene copas?",
       },
       {
         base: true,
@@ -281,12 +281,12 @@ export const stories = [
         base: false,
         text: "",
         options: {
-          positive: "El carro sí tiene jarras.",
+          positive: "El carro tiene jarras.",
           negative: "El carro no tiene jarras.",
         },
         keyword1: "carro",
         keyword2: "jarras",
-        question: "¿Es el nosequé nosecuanto?",
+        question: "¿El carro tiene jarras?",
       },
       {
         introductory: true,
@@ -297,12 +297,12 @@ export const stories = [
         base: false,
         text: "",
         options: {
-          positive: "La ensalada sí tiene tomate.",
+          positive: "La ensalada tiene tomate.",
           negative: "La ensalada no tiene tomate.",
         },
         keyword1: "ensalada",
         keyword2: "tomate",
-        question: "¿Es el nosequé nosecuanto?",
+        question: "¿La ensalada tiene tomate?",
       },
       {
         base: true,
@@ -312,12 +312,12 @@ export const stories = [
         base: false,
         text: "",
         options: {
-          positive: "La pizza sí tiene atún.",
+          positive: "La pizza tiene atún.",
           negative: "La pizza no tiene atún.",
         },
         keyword1: "pizza",
         keyword2: "atún",
-        question: "¿Es el nosequé nosecuanto?",
+        question: "¿La pizza tiene atún?",
       },
       {
         base: true,
@@ -327,12 +327,12 @@ export const stories = [
         base: false,
         text: "",
         options: {
-          positive: "La sopa sí tiene fideos.",
+          positive: "La sopa tiene fideos.",
           negative: "La sopa no tiene fideos.",
         },
         keyword1: "sopa",
         keyword2: "fideos",
-        question: "¿Es el nosequé nosecuanto?",
+        question: "¿La sopa tiene fideos?",
       },
       {
         base: true,
@@ -342,12 +342,12 @@ export const stories = [
         base: false,
         text: "",
         options: {
-          positive: "La hamburguesa sí tiene mayonesa.",
+          positive: "La hamburguesa tiene mayonesa.",
           negative: "La hamburguesa no tiene mayonesa.",
         },
         keyword1: "hamburguesa",
         keyword2: "mayonesa",
-        question: "¿Es el nosequé nosecuanto?",
+        question: "¿La hamburguesa tiene mayonesa?",
       },
       {
         introductory: true,
@@ -358,12 +358,12 @@ export const stories = [
         base: false,
         text: "",
         options: {
-          positive: "El perchero sí tiene chaquetas.",
+          positive: "El perchero tiene chaquetas.",
           negative: "El perchero no tiene chaquetas.",
         },
         keyword1: "perchero",
         keyword2: "chaquetas",
-        question: "¿Es el nosequé nosecuanto?",
+        question: "¿El perchero tiene chaquetas?",
       },
       {
         base: true,
@@ -373,12 +373,12 @@ export const stories = [
         base: false,
         text: "",
         options: {
-          positive: "La taquilla sí tiene candado.",
+          positive: "La taquilla tiene candado.",
           negative: "La taquilla no tiene candado.",
         },
         keyword1: "taquilla",
         keyword2: "candado",
-        question: "¿Es el nosequé nosecuanto?",
+        question: "¿La taquilla tiene candado?",
       },
       {
         base: true,
