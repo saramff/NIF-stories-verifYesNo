@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Experimento UNED</title>
+    <script src="https://unpkg.com/jspsych@8.0.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@2.0.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-image-keyboard-response@2.0.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-preload@2.0.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-external-html@2.0.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-fullscreen@2.0.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-survey-text@2.0.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-survey-multi-choice@2.0.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-call-function@2.0.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-html-button-response@2.0.0"></script>
+
+    <script type="module" src="./src/main.js"></script>
+    <script type="module" src="./src/tetris.js"></script>
+
+    <link
+      href="https://unpkg.com/jspsych@8.0.0/css/jspsych.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <style>
+      #game-container {
+        display: none;
+      }
+
+      body:has(.tetris-visible) {
+        background: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .hidden {
+          display: none;
+        }
+
+        #game-container {
+          display: block;
+          margin-top: 100px;
+        }
+
+        #game {
+          border: 1px solid black;
+        }
+
+        .play-btn {
+          cursor: pointer;
+          position: absolute;
+          left: 50%;
+          top: 15px;
+          transform: translateX(-50%);
+        }
+      }
+
+      .instrucciones {
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      .instrucciones p {
+        font-size: 30px;
+        font-weight: normal;
+        line-height: 1.6;
+        text-align: center;
+        margin: 5px auto;
+        color:blue;
+      }
+
+      .img-instructions {
+        width: 200px;
+      }
+
+      .imgs-container {
+        display: flex;
+        gap: 50px;
+        margin-bottom: 60px;
+      }
+
+      .object-img {
+        width: 600px;
+      }
+
+      .object-img.hidden {
+        display: none;
+      }
+
+      .sentence {
+        max-width: 1200px;
+        line-height: 2;
+        margin: 50px;
+        text-align: center;
+        font-size: 30px;
+        font-weight: normal;
+      }
+
+      .keys {
+        font-size: 2rem;
+
+        .right {
+          position: fixed;
+          bottom: 20px;
+          right: 100px;
+        }
+
+        .left {
+          position: fixed;
+          bottom: 20px;
+          left: 100px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="game-container">
+      <h1 id="play" class="play-btn">PLAY</h1>
+      <h1 id="play-again" class="play-btn hidden">PLAY AGAIN</h1>
+      <canvas width="320" height="640" id="game"></canvas>
+    </div>
+  </body>
+</html>
