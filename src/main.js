@@ -317,7 +317,7 @@ let sentencesPresentationStimuli = firstStory.sentences.map((sentence) => {
 let sentencesPresentation = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus: jsPsych.timelineVariable("stimulus"),
-  choices: [' '],
+  choices: "NO_KEYS",
 
   trial_duration: function(){
     const isIntroductory = jsPsych.evaluateTimelineVariable("isIntroductory");
@@ -395,7 +395,7 @@ let sentencesPresentationStimuli2 = secondStory.sentences.map((sentence) => {
 let sentencesPresentation2 = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus: jsPsych.timelineVariable("stimulus"),
-  choices: [' '],
+  choices: "NO_KEYS",
 
   trial_duration: function(){
     const isIntroductory = jsPsych.evaluateTimelineVariable("isIntroductory");
