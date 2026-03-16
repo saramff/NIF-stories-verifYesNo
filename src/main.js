@@ -207,7 +207,7 @@ var participantName = {
   preamble: 'A continuación, le preguntaremos algunos datos.',
   name: 'participantName',
     button_label:'Continuar',
-    questions: [{prompt:'<div>¿Cuál es su nombre y apellidos?<\div>', rows: 1, columns: 2, required: 'true'}],
+    questions: [{prompt:'<div>¿Cuál es tu nombre y apellidos?<\div>', rows: 1, columns: 2, required: 'true'}],
   data: {
     type:"demo",
     participantName: participantName,
@@ -303,13 +303,11 @@ let instructionsSentencePresentation = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus: `
   <div class="instrucciones">
-    <p>Ahora vas a leer una historia.</p>
-    <p>La historia se presentará en segmentos (por ejemplo, una frase cada vez).</p>
-    <p>Tu tarea consiste en <strong>leer detenidamente y de forma comprensiva</strong> la información, <strong>imaginándote dentro de la situación</strong> que describe la historia.</p>
-    <p>Es muy importante que prestes atención porque después te haremos unas preguntas sobre el contenido del texto.</p>
-    <p>Para poder responder correctamente, asegúrate de comprender bien cada fragmento antes de pasar al siguiente.</p>
-    <p>Cuando hayas terminado de leer un fragmento, puedes pasar al siguiente pulsando la <strong>barra espaciadora</strong>.</p>
-    <p>Ten en cuenta que cada fragmento permanecerá en pantalla solo durante un tiempo limitado, por lo que es importante que leas con atención desde el principio.</p>
+    <p>Ahora vas a leer una historia, dividida en párrafos y frases sueltas.</p>
+    <p>Tu tarea consiste en leer detenidamente y de forma comprensiva, imaginándote dentro de la situación que se está describiendo.</p>
+    <p>No necesitas realizar ninguna acción más allá de leer y comprender.</p>
+    <p>Los fragmentos irán apareciendo y desapareciendo automáticamente, con una duración que varía en función de la longitud del texto mostrado.</p>
+    <p>Posteriormente te preguntaremos por la historia. Eso quiere decir que es importante que comprendas bien e integres sus diferentes elementos.</p>
     <br />
     <p><strong>Pulsa la barra espaciadora para comenzar.</strong></p>
   </div>
@@ -382,12 +380,11 @@ let instructionsSentencePresentation2 = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus: `
   <div class="instrucciones">
-    <p>Ahora vas a leer un segundo texto.</p>
+    <p>Ahora vas a leer otra historia.</p>
     <p>Al igual que antes, el texto se presentará en pantallas sucesivas.</p>
-    <p>Tu tarea es la misma: <strong>lee detenidamente y de forma comprensiva</strong> cada parte del texto, <strong>imaginándote dentro de la situación</strong> que describe la historia.</p>
-    <p>Para poder responder correctamente, asegúrate de comprender bien cada fragmento antes de pasar al siguiente.</p>
-    <p>Cuando hayas terminado de leer un fragmento, puedes pasar al siguiente pulsando la <strong>barra espaciadora</strong>.</p>
-    <p>Ten en cuenta que cada fragmento permanecerá en pantalla solo durante un tiempo limitado, por lo que es importante que leas con atención desde el principio.</p>
+    <p>Tu tarea es la misma: lee detenidamente y de forma comprensiva, imaginándote dentro de la situación que se describe.</p>
+    <p>De nuevo, no necesitarás realizar ninguna acción para avanzar.</p>
+    <p>También te preguntaremos más adelante por esta historia, así que asegúrate de comprender e integrar sus elementos.</p>
     <br />
     <p>Pulsa la barra espaciadora para comenzar.</p>
    </div>
@@ -461,19 +458,17 @@ let instructionsVerification = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus: `
   <div class="instrucciones">
-    <p>Ahora realizarás la siguiente tarea:</p>
-    <p>A continuación verás una serie de <strong>oraciones</strong> en la pantalla que se mostrarán una a una.</p>
-    <p>Tu tarea será indicar si <strong>la información que aparece en la oración es verdadera o falsa</strong> según la historia que acabas de leer.</p>
-    
-    <p><strong>Importante:</strong> debes responder teniendo en cuenta <strong>lo que realmente ocurre en la historia</strong>, no simplemente si la oración se parece a algo que leíste.</p>
-
+    <p>Ahora es el momento de responder a preguntas sobre las historias previas.</p>
+    <p>Verás una serie de oraciones en la pantalla, mostradas de una en una.</p>
+    <p>Tendrás que indicar si la información que aparece en la oración es verdadera o falsa según las historias que acabas de leer.</p>
     <p>Por ejemplo, imagina que en la historia leíste:</p>
     <p><em>"La niña no tiene gafas."</em></p>
 
     <p>Si ahora aparece la oración:</p>
     <p><em>"¿La niña tiene gafas?"</em></p>
 
-    <p>La respuesta correcta sería <strong>NO</strong>, porque en la historia se decía que <strong>la niña no tenía gafas</strong>.</p>
+    <p>La respuesta correcta sería NO, porque en la historia se decía que la niña no tenía gafas.</p>
+    <p>En cambio, si en la historia hubieras leído “La niña tiene gafas”, tu respuesta debería ser SÍ.</p>
 
     <p>Para responder harás lo siguiente:</p>
     <p><strong>Si la oración es correcta</strong>, pulsa la tecla '${correctKey.toUpperCase()}' (SÍ).</p>
@@ -582,14 +577,16 @@ let instructionsWordsPresentation = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus: `
   <div class="instrucciones">
-    <p>Ahora realizarás la siguiente tarea:</p>
-    <p>A continuación verás una serie de <strong>palabras</strong> en la pantalla que se mostrarán una a una.</p>
+    <p>Ahora realizarás una última tarea:</p>
+    <p>Verás una serie de palabras en la pantalla que se mostrarán una a una.</p>
     <p>Algunas de estas palabras han podido aparecer en los textos que leíste anteriormente y otras serán nuevas.</p>
-    <p>Tu tarea consiste en indicar si cada palabra estuvo <strong>PRESENTE</strong> o <strong>NO PRESENTE</strong> en cualquiera de los dos textos.</p>
+    <p>Tu tarea consiste en indicar para cada palabra:.</p>
+    <p>VISTA, si fue una palabra leída en las fases previas.</p>
+    <p>NUEVA, si la palabra no apareció en ninguna de las previas.</p>
 
     <p>Para responder harás lo siguiente:</p>
-    <p><strong>Si has visto<strong> antes el objeto, pulsa la tecla '${correctKey.toUpperCase()}' (presente).</p>
-    <p><strong>Si no has visto<strong> antes el objeto, pulsa la tecla '${incorrectKey.toUpperCase()}' (no presente).</p>
+    <p><strong>Si has visto<strong> antes el objeto, pulsa la tecla '${correctKey.toUpperCase()}' (VISTA).</p>
+    <p><strong>Si no has visto<strong> antes el objeto, pulsa la tecla '${incorrectKey.toUpperCase()}' (NUEVA).</p>
     <p>Te recomendamos colocar los dedos sobre las teclas ${correctKey.toUpperCase()} y ${incorrectKey.toUpperCase()} durante la tarea para no olvidarlas.</p>
     <p>Pulsa la barra espaciadora para comenzar.</p>
   </div>
@@ -605,8 +602,8 @@ let wordsStimuli = words.map((word) => {
     stimulus: `
       <h3 class="sentence">${word.word}</h3>
       <div class="keys">
-        <p class="${correctKey === 'a' ? 'left' : 'right'}">PRESENTE</p>
-        <p class="${correctKey === 'a' ? 'right' : 'left'}">NO PRESENTE</p>
+        <p class="${correctKey === 'a' ? 'left' : 'right'}">VISTA</p>
+        <p class="${correctKey === 'a' ? 'right' : 'left'}">NUEVA</p>
       </div>
     `,
     correct_response: word.correctResponse
