@@ -416,7 +416,7 @@ let sentencesPresentation2 = {
 
   trial_duration: function(){
     const isIntroductory = jsPsych.evaluateTimelineVariable("isIntroductory");
-    return isIntroductory ? 12000 : 6000;
+    return isIntroductory ? 25000 : 5000;
   },
 
   data: {
@@ -460,7 +460,7 @@ let instructionsVerification = {
   <div class="instrucciones">
     <p>Ahora es el momento de responder a preguntas sobre las historias previas.</p>
     <p>Verás una serie de oraciones en la pantalla, mostradas de una en una.</p>
-    <p>Tendrás que indicar si la información que aparece en la oración es verdadera o falsa según las historias que acabas de leer.</p>
+    <p>Tendrás que indicar si la información que aparece en la oración la has visto previamente o no en las historias que acabas de leer.</p>
     <p>Por ejemplo, imagina que en la historia leíste:</p>
     <p><em>"La niña no tiene gafas."</em></p>
 
@@ -471,8 +471,8 @@ let instructionsVerification = {
     <p>En cambio, si en la historia hubieras leído “La niña tiene gafas”, tu respuesta debería ser SÍ.</p>
 
     <p>Para responder harás lo siguiente:</p>
-    <p><strong>Si la oración es correcta</strong>, pulsa la tecla '${correctKey.toUpperCase()}' (SÍ).</p>
-    <p><strong>Si la oración es incorrecta</strong>, pulsa la tecla '${incorrectKey.toUpperCase()}' (NO).</p>
+    <p><strong>Si la oración estaba presente en las historias</strong>, pulsa la tecla '${correctKey.toUpperCase()}' (SÍ).</p>
+    <p><strong>Si la oración no estaba presente en las historias</strong>, pulsa la tecla '${incorrectKey.toUpperCase()}' (NO).</p>
 
     <p>Te recomendamos colocar los dedos sobre las teclas ${correctKey.toUpperCase()} y ${incorrectKey.toUpperCase()} durante la tarea para no olvidarlas.</p>
 
@@ -580,9 +580,9 @@ let instructionsWordsPresentation = {
     <p>Ahora realizarás una última tarea:</p>
     <p>Verás una serie de palabras en la pantalla que se mostrarán una a una.</p>
     <p>Algunas de estas palabras han podido aparecer en los textos que leíste anteriormente y otras serán nuevas.</p>
-    <p>Tu tarea consiste en indicar para cada palabra:.</p>
+    <p>Tu tarea consiste en indicar para cada palabra:</p>
     <p>VISTA, si fue una palabra leída en las fases previas.</p>
-    <p>NUEVA, si la palabra no apareció en ninguna de las previas.</p>
+    <p>NUEVA, si la palabra no apareció en ninguna de las fases previas.</p>
 
     <p>Para responder harás lo siguiente:</p>
     <p><strong>Si has visto<strong> antes el objeto, pulsa la tecla '${correctKey.toUpperCase()}' (VISTA).</p>
